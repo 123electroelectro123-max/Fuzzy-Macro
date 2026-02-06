@@ -640,6 +640,12 @@ def macro(status, logQueue, updateGUI, run, skipTask, presence=None):
             # Skip to next iteration
             continue
 
+        if macro.setdat.get("macro_mode", "normal") == "path-test":
+            settings = get_cached_settings()
+            keyboard.slowPress(settings.get("stop_keybind", "F3"))
+            #.
+            
+
         # Check if quest-only mode is enabled
         if macro.setdat.get("macro_mode", "normal") == "quest":
             # Quest-only mode: skip all tasks except quest-related tasks
