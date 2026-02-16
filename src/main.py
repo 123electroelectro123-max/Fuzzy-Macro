@@ -640,9 +640,9 @@ def macro(status, logQueue, updateGUI, run, skipTask, presence=None):
             # Skip to next iteration
             continue
 
-        if macro.setdat.get("macro_mode", "normal") == "path-test":
+        if macro.setdat.get("macro_mode", "normal") == "path":
             settings = get_cached_settings()
-            keyboard.slowPress(settings.get("stop_keybind", "F3"))
+            macro.keyboard.slowPress(settings.get("stop_keybind", "F3"))
             #.
             
 
