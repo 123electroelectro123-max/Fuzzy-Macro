@@ -450,6 +450,19 @@
         // },
       ]);
 
+      buildStandardContainer(parentOther, "Path Testing", "", [
+        {
+          id: "testing",
+          title: "Enable Path Testing mode",
+          desc: "Adds another tab that lets you test paths",
+          type: {
+            name: "checkbox",
+            onchange: 'document.getElementById("testing-tab").hidden = !this.checked; if(this.checked){document.getElementById("macro_mode").add(new Option("Path Mode", "path")); document.getElementById("macro_mode").selectedIndex = 0}else{document.getElementById("macro_mode").remove(3)}',
+            triggerFunction: saveGeneralTriggerFunction,
+          },
+        },
+      ]);
+
       // Advanced: Beta Testing
       buildStandardContainer(parentOther, "Advanced", "", [
         {
