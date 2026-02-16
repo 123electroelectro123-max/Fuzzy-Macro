@@ -70,6 +70,21 @@ function setDropdownData(id, data) {
 }
 
 function buildInput(id, type) {
+  if (type.triggerFunction === "forPathTest"){
+    return `<label class="checkbox-container" style="margin-top: 0.6rem;">
+                    <input type="checkbox" id = "testing" onchange='
+                      saveSetting(this, "general");
+                      document.getElementById("macro_mode").selectedIndex = 0;
+                      if(this.checked){
+                        document.getElementById("macro_mode").add(new Option("Path Mode", "path"));
+                        document.getElementById("sidebar-list").innerHTML += "<li class=sidebar-item id=testing-tab><img src=./assets/sidebar/testing.png />Testing</li>";
+                      }else{
+                        document.getElementById("macro_mode").remove(3);
+                        document.getElementById("sidebar-list").removeChild(document.getElementById("sidebar-list").children[8]);
+                      }'>
+                    <span class="checkmark"></span>
+              </label>`;
+  }
   if (type.name == "checkbox") {
     return `<label class="checkbox-container" style="margin-top: 0.6rem;">
                     <input type="checkbox" id = ${id} onchange="${type.triggerFunction}">
